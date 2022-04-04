@@ -7,6 +7,10 @@ dotenv.config();
 
 const server = express();
 
+server.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
 server.use(API_ROUTES.ROOT, api);
 
 console.log('server is running on port:', process.env.PORT);

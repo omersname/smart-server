@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "server/index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node server/index.js"
+    "dev": "nodemon --exec babel-node server/index.js",
+    "start": "node server/index.js"
   },
   "dependencies": {
     "axios": "^0.24.0",
@@ -19,5 +20,8 @@
     "@babel/preset-env": "^7.16.4",
     "chalk": "^4.0.0",
     "nodemon": "^2.0.15"
+  },
+  "engines": {
+    "node": "14.x"
   }
 }
