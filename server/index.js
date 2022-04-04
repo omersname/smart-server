@@ -8,7 +8,7 @@ dotenv.config();
 const server = express();
 
 server.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('GO TO /api TO GET API ENDPOINTS!');
 });
 
 server.use(API_ROUTES.ROOT, api);

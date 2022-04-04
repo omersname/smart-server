@@ -1,6 +1,6 @@
 const {twitterApi} = require('../external/twitter/api');
 const {PROBLEM_KEY, SENTIMENT} = require('../constants/params');
-const {core} = require('../core/sentiment');
+const core = require('../core/sentiment');
 
 const getTweetsByQuery = async (query) => {
   const tweets = [];
@@ -17,9 +17,9 @@ const filterTweetsBySentiment = (tweets) => {
   const keys = Object.values(SENTIMENT);
   const obj = keys.reduce((acc, key) => ({...acc, [key]: []}), {});
   return tweets.reduce((acc, t) => {
-    const score = core.getSentiment(t.text);
+    const score = core.getSentiment(t);
     const sentiment = score > 0 ? SENTIMENT.POSITIVE : score < 0 ? SENTIMENT.NEGATIVE : SENTIMENT.NEUTRAL;
-    return {...acc, [sentiment]: [...acc[sentiment], t.text]};
+    return {...acc, [sentiment]: [...acc[sentiment], t]};
   }, obj);
 };
 
