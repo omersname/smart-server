@@ -1,7 +1,7 @@
-import dotenv from 'dotenv';
-import express from 'express';
-import {api} from './api';
-import {API_ROUTES} from './constants/routes';
+const dotenv = require('dotenv');
+const express = require('express');
+const api = require('./api');
+const API_ROUTES = require('./constants/routes');
 
 dotenv.config();
 
@@ -15,5 +15,3 @@ server.use(API_ROUTES.ROOT, api);
 
 console.log('server is running on port:', process.env.PORT);
 server.listen(process.env.PORT);
-
-export default server;

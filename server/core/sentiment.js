@@ -1,4 +1,4 @@
-import Sentiment from 'sentiment';
+const Sentiment = require('sentiment');
 
 const getSentiment = (string) => {
   const sentiment = new Sentiment();
@@ -6,6 +6,8 @@ const getSentiment = (string) => {
   return score;
 };
 
-export const core = {
+const core = {
   getSentiment,
 };
+
+module.exports = core;

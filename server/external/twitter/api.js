@@ -1,6 +1,6 @@
-import {twitterEndpoint} from './endpoints';
-import {http} from '../../services/http';
-import {twitterConfig} from './config';
+const twitterEndpoint = require('./endpoints');
+const http = require('../../services/http');
+const twitterConfig = require('./config');
 
 const searchTweets = async (query, token) => {
   const endpoint = twitterEndpoint.searchTweets();
@@ -20,7 +20,9 @@ const getTweet = async (tweetId) => {
   return result;
 };
 
-export const twitterApi = {
+const twitterApi = {
   searchTweets,
   getTweet,
 };
+
+module.exports = twitterApi;

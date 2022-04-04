@@ -1,6 +1,6 @@
-import {twitterApi} from '../external/twitter/api';
-import {PROBLEM_KEY, SENTIMENT} from '../constants/params';
-import {core} from '../core/sentiment';
+const {twitterApi} = require('../external/twitter/api');
+const {PROBLEM_KEY, SENTIMENT} = require('../constants/params');
+const {core} = require('../core/sentiment');
 
 const getTweetsByQuery = async (query) => {
   const tweets = [];
@@ -27,8 +27,7 @@ const filterTweetsByProblem = (tweets) => {
   const keys = Object.values(PROBLEM_KEY);
   const obj = keys.reduce((acc, key) => ({...acc, [key]: []}), {});
   return tweets.reduce((acc, tweet) => {
-    let key = keys.find(k => tweet.includes(k));
-    key ??= PROBLEM_KEY.GENERAL;
+    const key = keys.find(k => tweet.includes(k)) ?? PROBLEM_KEY.GENERAL;
     return {...acc, [key]: [...acc[key], tweet]};
   }, obj);
 };
@@ -47,9 +46,11 @@ const getTweetsProblems = async (modelName) => {
   });
 };
 
-export const twitterMethods = {
+const twitterMethods = {
   getTweetsByQuery,
   getTweetsProblems,
   filterTweetsBySentiment,
   filterTweetsByProblem,
 };
+
+module.exports = twitterMethods;

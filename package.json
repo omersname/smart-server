@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "main": "server/index.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node server/index.js",
-    "start": "node server/index.js"
+    "dev": "nodemon server/index.js"
   },
   "dependencies": {
     "axios": "^0.24.0",
@@ -14,11 +13,6 @@
     "sentiment": "^5.0.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.16.0",
-    "@babel/core": "^7.16.0",
-    "@babel/node": "^7.16.0",
-    "@babel/preset-env": "^7.16.4",
-    "chalk": "^4.0.0",
     "nodemon": "^2.0.15"
   },
   "engines": {

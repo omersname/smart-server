@@ -1,5 +1,7 @@
 const ROOT = 'http://api-mobilespecs.azharimm.site/v2';
 
-export const modelEndpoint = {
+const modelEndpoint = {
   getModel: (slug) => `${ROOT}/${slug}`,
 };
+
+module.exports = modelEndpoint;

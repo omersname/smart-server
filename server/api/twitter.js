@@ -1,5 +1,5 @@
-import {ROUTE_PARAM} from '../constants/params';
-import {twitterMethods} from '../methods/twitter';
+const {ROUTE_PARAM} = require('../constants/params');
+const twitterMethods = require('../methods/twitter');
 
 const getSentiments = async (req, res) => {
   const modelSlug = req.params[ROUTE_PARAM.MODEL_SLUG];
@@ -19,7 +19,9 @@ const getProblems = async (req, res) => {
   res.send(result);
 };
 
-export const twitterControl = {
+const twitterControl = {
   getSentiments,
   getProblems,
 };
+
+module.exports = twitterControl;

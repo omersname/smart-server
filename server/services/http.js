@@ -1,5 +1,5 @@
-import axios from 'axios';
-import {devMethods} from '../methods/dev';
+const axios = require('axios');
+const devMethods = require('../methods/dev');
 
 const get = async (url, params, headers) => {
   try {
@@ -22,7 +22,9 @@ const post = async (url, data, headers) => {
   }
 };
 
-export const http = {
+const http = {
   get,
   post,
 };
+
+module.exports = http;

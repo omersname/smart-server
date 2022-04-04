@@ -3,6 +3,8 @@ const authorization = () => {
   return {Authorization: `Bearer ${token}`};
 };
 
-export const twitterConfig = {
+const twitterConfig = {
   authorization,
 };
+
+module.exports = twitterConfig;

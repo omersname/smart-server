@@ -1,13 +1,13 @@
-export const ROUTE_PARAM = {
+const ROUTE_PARAM = {
   MODEL_SLUG: 'slug',
 };
 
-export const MODEL_SLUG = {
+const MODEL_SLUG = {
   IPHONE: 'iphone',
   GALAXY: 'galaxy',
 };
 
-export const PROBLEM_KEY = {
+const PROBLEM_KEY = {
   WIFI: 'wifi',
   SOUND: 'sound',
   CAMERA: 'camera',
@@ -21,8 +21,15 @@ export const PROBLEM_KEY = {
   BLUETOOTH: 'bluetooth',
 };
 
-export const SENTIMENT = {
+const SENTIMENT = {
   NEUTRAL: 'neutral',
   POSITIVE: 'positive',
   NEGATIVE: 'negative',
+};
+
+module.exports = {
+  ROUTE_PARAM,
+  MODEL_SLUG,
+  PROBLEM_KEY,
+  SENTIMENT,
 };
