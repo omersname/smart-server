@@ -13,20 +13,6 @@ server.get('/', (req, res) => {
   res.send('GO TO /api TO GET API ENDPOINTS!');
 });
 
-(async () => {
-  try {
-    const userId = '1137030531210653696';
-    const url = `https://api.twitter.com/2/users/${userId}`;
-    const headers = twitterConfig.authorization();
-    const res = await http.get(url, {
-      'user.fields': 'withheld',
-    }, headers);
-    console.log('RESULT:', res.data.data);
-  } catch (err) {
-    console.error('ERROR:', err);
-  }
-})();
-
 server.use(API_ROUTES.ROOT, api);
 
 console.log('server is running on port:', process.env.PORT);
