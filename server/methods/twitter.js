@@ -17,7 +17,7 @@ const filterTweetsBySentiment = (tweets) => {
   const keys = Object.values(SENTIMENT);
   const obj = keys.reduce((acc, key) => ({...acc, [key]: []}), {});
   return tweets.reduce((acc, t) => {
-    const score = core.getSentiment(t);
+    const score = core.getSentiment(t.text);
     const sentiment = score > 0 ? SENTIMENT.POSITIVE : score < 0 ? SENTIMENT.NEGATIVE : SENTIMENT.NEUTRAL;
     return {...acc, [sentiment]: [...acc[sentiment], t]};
   }, obj);
@@ -27,7 +27,7 @@ const filterTweetsByProblem = (tweets) => {
   const keys = Object.values(PROBLEM_KEY);
   const obj = keys.reduce((acc, key) => ({...acc, [key]: []}), {});
   return tweets.reduce((acc, tweet) => {
-    const key = keys.find(k => tweet.includes(k)) ?? PROBLEM_KEY.GENERAL;
+    const key = keys.find(k => tweet.text.includes(k)) ?? PROBLEM_KEY.GENERAL;
     return {...acc, [key]: [...acc[key], tweet]};
   }, obj);
 };
